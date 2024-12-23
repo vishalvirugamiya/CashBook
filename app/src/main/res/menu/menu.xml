@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="pdf"
+        android:id="@+id/pdf"
+        android:icon="@drawable/ic_pdf"
+        app:showAsAction="always"/>
+
+    <item
+        android:title="pdf"
+        android:icon="@drawable/serchicon"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/notes"
+        android:title="Nates"
+        />
+    <item android:id="@+id/date"
+        android:title="Date"
+        />
+    <item android:id="@+id/range"
+        android:title="Delect date Range"
+        />
+    <item
+        android:id="@+id/dateAscending"
+        android:title="Date Ascending"
+        />
+    <item android:id="@+id/dateDscending"
+        android:title="Date Descending"
+        />
+    <item android:id="@+id/print"
+        android:title="Print"
+        />
+    <item android:id="@+id/backup"
+        android:title="Backup and Restore"
+        />
+    <item android:id="@+id/nameAddress"
+        android:title="Your Name and Address"
+        />
+
+
+
+</menu>

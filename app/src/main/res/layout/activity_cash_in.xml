@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="#0A000000"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Cash_In">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="#2196F3">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:background="@drawable/backk" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:text="Cash In"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20sdp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/shape3"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_marginTop="@dimen/_100sdp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+
+
+
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_45sdp"
+                android:backgroundTint="#00BD07"
+                android:text="Cash In"
+                android:textColor="@color/black" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/swich_cashout"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:text="Cash Out" />
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:textColorHint="@color/black"
+
+            app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_5sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+            app:boxCornerRadiusTopStart="@dimen/_5sdp"
+            app:boxStrokeWidth="0.5dp"
+            app:endIconDrawable="@drawable/ic_calculate"
+            app:endIconMode="custom"
+            app:endIconTint="#2196F3"
+            app:hintTextColor="@color/black"
+            app:prefixText="Cash In "
+            app:prefixTextColor="#059B0A">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cashin_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:text="  "
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+
+            android:layout_marginTop="@dimen/_5sdp"
+            android:hint="Notes"
+            app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_5sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+            app:boxCornerRadiusTopStart="@dimen/_5sdp"
+
+            app:boxStrokeWidth="0.5dp"
+            app:endIconMode="custom"
+            app:endIconDrawable="@drawable/ic_camera"
+            app:endIconTint="#2196F3"
+            app:prefixTextColor="#059B0A">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/notes_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="@dimen/_190sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:background="@drawable/shape1">
+
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_16sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:background="@drawable/leftarrow" />
+
+                <TextView
+                    android:id="@+id/date_years"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:text="date &amp; Year"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_16sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:background="@drawable/rightarrow" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/calender"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:endIconDrawable="@drawable/ic_calendar"
+                    app:endIconMode="custom"
+                    app:endIconTint="#2196F3"
+                    app:prefixTextColor="#059B0A">
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/timeSelact"
+                android:background="@drawable/shape1"
+                android:layout_width="@dimen/_94sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_13sdp">
+
+
+                <TextView
+                    android:id="@+id/timeText"
+                    android:layout_width="66dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="11:36 AM"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:gravity="center"
+
+                    app:endIconDrawable="@drawable/ic_time"
+                    app:endIconMode="custom"
+                    app:endIconTint="#2196F3"
+                    app:prefixTextColor="#059B0A">
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center">
+
+            <Button
+                android:id="@+id/save_exite"
+                android:layout_width="@dimen/_155sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:backgroundTint="#92A3EB"
+                android:text="Save and Eexit "
+                android:textColor="#006BFF" />
+
+            <Button
+                android:id="@+id/save_continue"
+                android:layout_width="@dimen/_155sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:gravity="center"
+                android:backgroundTint="#006BFF"
+                android:text=" Save and continue"
+                android:textColor="@color/black" />
+
+    </LinearLayout>
+
+</FrameLayout>

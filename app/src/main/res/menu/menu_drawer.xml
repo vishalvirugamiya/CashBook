@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/ic_ads"
+        android:id="@+id/RemoveAds"
+        android:title="Remove Ads"/>
+
+    <item
+        android:icon="@drawable/ic_sumary"
+        android:id="@+id/summary"
+        android:title="Summary"/>
+
+    <item
+        android:icon="@drawable/ic_sumary"
+        android:id="@+id/item3"
+        android:title="Account Summary" />
+
+
+    <item
+        android:icon="@drawable/ic_transaction"
+        android:id="@+id/transaction"
+        android:title="Transaction-All"/>
+
+    <item
+        android:icon="@drawable/ic_accounts"
+        android:id="@+id/Account"
+        android:title="Account"/>
+
+    <item
+        android:icon="@drawable/ic_transfer"
+        android:id="@+id/Transfer"
+        android:title="Transfer" />
+
+    <item
+        android:icon="@drawable/ic_reportaccount"
+        android:id="@+id/reportAllAcoungt"
+        android:title="Report-all Account"/>
+
+    <item
+        android:icon="@drawable/ic_transfer"
+        android:id="@+id/switchtoIcon"
+        android:title="Switch to Income"/>
+
+    <item
+        android:icon="@drawable/ic_calculate"
+        android:id="@+id/cashCalculater"
+        android:title="Cash Calculator" />
+    <item
+        android:icon="@drawable/ic_backup"
+        android:id="@+id/backUprestor"
+        android:title="Backup and Restore"/>
+
+    <item
+        android:icon="@drawable/setting_ic"
+        android:id="@+id/Setting"
+        android:title="Setting" />
+
+    <item
+        android:icon="@drawable/ic_help"
+        android:id="@+id/help"
+        android:title="Help"/>
+
+    <item
+        android:icon="@drawable/ic_rateus"
+        android:id="@+id/rateUs"
+        android:title="Rate Us" />
+    <item
+        android:icon="@drawable/ic_share"
+        android:id="@+id/recommed"
+        android:title="Recommed" />
+
+    <!--
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/subtitle"
+            android:title="Subtitle">
+
+            <menu>
+
+                <item
+                    android:icon="@drawable/ic_home"
+                    android:id="@+id/home_"
+                    android:title="Home" />
+                <item
+                    android:icon="@drawable/ic_help"
+                    android:id="@+id/help_"
+                    android:title="Help" />
+                <item
+                    android:icon="@drawable/ic_settings"
+                    android:id="@+id/setting"
+                    android:title="Settings" />
+
+            </menu>
+
+        </item>
+
+    </group>
+    -->
+</menu>

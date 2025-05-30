@@ -7,6 +7,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:background="#0A000000"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".Cash_In">
 
@@ -21,7 +22,8 @@
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:background="@drawable/backk" />
 
         <TextView
@@ -50,15 +52,15 @@
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_45sdp"
+
                 android:id="@+id/swich_cashin"
                 android:text="Cash In"
                 android:textColor="@color/black" />
 
             <com.google.android.material.chip.Chip
-
-                android:backgroundTint="#F40707"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_45sdp"
+                android:backgroundTint="#B10909"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:text="Cash Out" />
 
@@ -68,15 +70,16 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:textColorHint="@color/black"
-            app:boxCornerRadiusBottomEnd="5dp"
-            app:boxCornerRadiusBottomStart="5dp"
-            app:boxCornerRadiusTopEnd="5dp"
-            app:boxCornerRadiusTopStart="5dp"
+
+            app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_5sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+            app:boxCornerRadiusTopStart="@dimen/_5sdp"
             app:boxStrokeWidth="0.5dp"
             app:endIconDrawable="@drawable/ic_calculate"
             app:endIconMode="custom"
@@ -89,7 +92,7 @@
                 android:id="@+id/cashout_amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
+                android:inputType="numberDecimal"
                 android:text="  "
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15ssp" />
@@ -102,15 +105,17 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
             android:hint="Notes"
-            app:boxCornerRadiusBottomEnd="5dp"
-            app:boxCornerRadiusBottomStart="5dp"
-            app:boxCornerRadiusTopEnd="5dp"
-            app:boxCornerRadiusTopStart="5dp"
+            app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_5sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+            app:boxCornerRadiusTopStart="@dimen/_5sdp"
+
             app:boxStrokeWidth="0.5dp"
             app:endIconMode="custom"
             app:endIconDrawable="@drawable/ic_camera"
@@ -121,7 +126,6 @@
                 android:id="@+id/notes_cashout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15ssp" />
 
@@ -130,22 +134,22 @@
 
 
         <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_60sdp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="@dimen/_190sdp"
                 android:layout_height="@dimen/_50sdp"
-                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:background="@drawable/shape1">
 
                 <ImageView
                     android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_15sdp"
+                    android:layout_height="@dimen/_16sdp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/_15sdp"
                     android:background="@drawable/leftarrow" />
-
 
                 <TextView
                     android:id="@+id/date_years_cashout"
@@ -159,7 +163,7 @@
 
                 <ImageView
                     android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_15sdp"
+                    android:layout_height="@dimen/_16sdp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:background="@drawable/rightarrow" />
@@ -167,13 +171,12 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/calender"
-                    android:layout_width="@dimen/_40sdp"
+                    android:layout_width="55dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="@dimen/_7sdp"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginBottom="10dp"
-                    app:endIconMode="custom"
                     app:endIconDrawable="@drawable/ic_calendar"
+                    app:endIconMode="custom"
                     app:endIconTint="#2196F3"
                     app:prefixTextColor="#059B0A">
 
@@ -184,42 +187,36 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/timeSelact"
                 android:background="@drawable/shape1"
-                android:layout_width="@dimen/_94sdp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:layout_height="@dimen/_50sdp"
-                android:layout_marginLeft="@dimen/_3sdp"
-                android:layout_marginBottom="@dimen/_5sdp">
+                android:layout_marginLeft="@dimen/_3sdp">
 
 
                 <TextView
                     android:id="@+id/time"
+                    android:layout_width="@dimen/_66sdp"
+                    android:layout_height="@dimen/_52sdp"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:textSize="@dimen/_15sdp"
-                    android:textColor="@color/black"
                     android:text="11:36 AM"
-                    android:layout_width="@dimen/_50sdp"
-                    android:layout_height="wrap_content"/>
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/select_time"
+
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_marginLeft="@dimen/_3sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
                     android:gravity="center"
-
-                    app:boxCornerRadiusBottomEnd="5dp"
-                    app:boxCornerRadiusBottomStart="5dp"
-                    app:boxCornerRadiusTopEnd="5dp"
-                    app:boxCornerRadiusTopStart="5dp"
-                    app:boxStrokeWidth="0.5dp"
-
                     app:endIconDrawable="@drawable/ic_time"
                     app:endIconMode="custom"
                     app:endIconTint="#2196F3"
                     app:prefixTextColor="#059B0A">
-
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -236,32 +233,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:gravity="bottom">
+        android:gravity="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+        <Button
+            android:id="@+id/save_exite"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginRight="@dimen/_2sdp"
+            android:backgroundTint="#92A3EB"
+            android:text="Save and Exit "
+            android:textColor="#006BFF" />
 
-
-            <Button
-                android:id="@+id/save_exite"
-                android:layout_width="@dimen/_155sdp"
-                android:layout_height="@dimen/_50sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:backgroundTint="#92A3EB"
-                android:text="Save and Eexit "
-                android:textColor="#006BFF" />
-
-            <Button
-                android:id="@+id/save_continue"
-                android:layout_width="@dimen/_155sdp"
-                android:layout_height="@dimen/_50sdp"
-                android:backgroundTint="#006BFF"
-                android:text=" Save and continue"
-                android:textColor="@color/black" />
-
-        </LinearLayout>
+        <Button
+            android:layout_marginLeft="@dimen/_2sdp"
+            android:id="@+id/save_continue"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:gravity="center"
+            android:backgroundTint="#006BFF"
+            android:text=" Save and continue"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 

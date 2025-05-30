@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Cash Book</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="text_choice_1">All</string>
+    <string name="text_choice_2">Daily</string>
+    <string name="text_choice_3">Weekly</string>
+    <string name="text_choice_4">Monthly</string>
+
+
+
 </resources>

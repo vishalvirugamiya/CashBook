@@ -13,6 +13,7 @@
     tools:context=".Cash_Out">
 
     <LinearLayout
+        android:id="@+id/cliclinear"
         android:layout_marginTop="@dimen/_3sdp"
         android:orientation="vertical"
         android:background="#ffffff"
@@ -21,7 +22,6 @@
 
 
         <LinearLayout
-            android:gravity="center"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -29,34 +29,37 @@
             <TextView
                 android:id="@+id/notes"
                 android:text="notes"
-                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp"
-                android:layout_width="@dimen/_160sdp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
 
 
             <LinearLayout
                 android:layout_gravity="center"
-                android:layout_width="200dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/cashAmount"
-                    android:gravity="center"
-                    android:textColor="#05AD0D"
-                    android:layout_width="100dp"
+                    android:textColor="#D311A61F"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textSize="@dimen/_15sdp" />
 
                 <TextView
+                    android:id="@+id/cashOut_amount"
                     android:text=""
-                    android:textColor="#F00E00"
-                    android:gravity="center"
+                    android:textColor="#DEDB3B3B"
                     android:textSize="@dimen/_15sdp"
-                    android:layout_width="100dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"/>
 
 
@@ -76,7 +79,7 @@
                 android:id="@+id/dates"
                 android:textColor="#BE000000"
                 android:text="detes"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_12sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -85,7 +88,7 @@
                 android:id="@+id/times"
                 android:text="Time"
                 android:textColor="#BE000000"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_12sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

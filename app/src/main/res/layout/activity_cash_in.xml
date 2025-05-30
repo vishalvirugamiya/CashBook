@@ -22,7 +22,8 @@
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_30sdp"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="@dimen/_5sdp"
             android:background="@drawable/backk" />
 
         <TextView
@@ -48,13 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp">
 
-
-
-
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_45sdp"
-                android:backgroundTint="#00BD07"
+                android:backgroundTint="#049B12"
                 android:text="Cash In"
                 android:textColor="@color/black" />
 
@@ -190,15 +188,17 @@
             <LinearLayout
                 android:id="@+id/timeSelact"
                 android:background="@drawable/shape1"
-                android:layout_width="@dimen/_94sdp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/_10sdp"
                 android:layout_height="@dimen/_50sdp"
-                android:layout_marginLeft="@dimen/_13sdp">
+                android:layout_marginLeft="@dimen/_3sdp">
 
 
                 <TextView
                     android:id="@+id/timeText"
-                    android:layout_width="66dp"
-                    android:layout_height="52dp"
+                    android:layout_width="@dimen/_66sdp"
+                    android:layout_height="@dimen/_52sdp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="11:36 AM"
@@ -212,7 +212,6 @@
                     android:layout_marginLeft="@dimen/_3sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
                     android:gravity="center"
-
                     app:endIconDrawable="@drawable/ic_time"
                     app:endIconMode="custom"
                     app:endIconTint="#2196F3"
@@ -237,16 +236,21 @@
 
             <Button
                 android:id="@+id/save_exite"
-                android:layout_width="@dimen/_155sdp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginLeft="@dimen/_5sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginRight="@dimen/_2sdp"
                 android:backgroundTint="#92A3EB"
-                android:text="Save and Eexit "
+                android:text="Save and Exit "
                 android:textColor="#006BFF" />
 
             <Button
+                android:layout_marginLeft="@dimen/_2sdp"
                 android:id="@+id/save_continue"
-                android:layout_width="@dimen/_155sdp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginRight="@dimen/_5sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:gravity="center"
                 android:backgroundTint="#006BFF"

@@ -7,12 +7,13 @@
         android:id="@+id/pdf"
         android:icon="@drawable/ic_pdf"
         app:showAsAction="always"/>
-
     <item
-        android:title="pdf"
+        android:title="Search"
+        android:id="@+id/Search"
         android:icon="@drawable/serchicon"
-        app:showAsAction="always"/>
-
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView"
+        />
     <item
         android:id="@+id/notes"
         android:title="Nates"
@@ -20,26 +21,20 @@
     <item android:id="@+id/date"
         android:title="Date"
         />
-    <item android:id="@+id/range"
-        android:title="Delect date Range"
+    <item android:id="@+id/cashinMenu"
+        android:title="Cash In"
         />
-    <item
-        android:id="@+id/dateAscending"
-        android:title="Date Ascending"
+
+        <item android:id="@+id/cashOutmenu"
+        android:title="Cash Out"
         />
-    <item android:id="@+id/dateDscending"
-        android:title="Date Descending"
-        />
-    <item android:id="@+id/print"
+
+    <item android:id="@+id/Print"
         android:title="Print"
-        />
-    <item android:id="@+id/backup"
-        android:title="Backup and Restore"
         />
     <item android:id="@+id/nameAddress"
         android:title="Your Name and Address"
         />
-
 
 
 </menu>

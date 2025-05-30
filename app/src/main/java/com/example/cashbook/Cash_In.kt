@@ -15,27 +15,62 @@ import java.util.Calendar
 class Cash_In : AppCompatActivity() {
 
     lateinit var binding: ActivityCashInBinding
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         //enableEdgeToEdge()
-        binding=ActivityCashInBinding.inflate(layoutInflater)
+        binding = ActivityCashInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+
         time()
         date()
+        var model: UserData? =intent.getSerializableExtra("DataIn")as UserData?
+
+        if (model != null) {
+
+            binding.notes.setText(model.notes)
+            binding.cashinAmount.setText(model.Amount.toString())
+            binding.dateYears.setText(model.dateYear)
+            binding.timeText.setText(model.Time)
+
+        }
+
+        binding.back.setOnClickListener {
+
+            var intent : Intent = Intent(this@Cash_In,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        binding.timeSelact.setOnClickListener {
+
+            val cal = Calendar.getInstance()
+
+            val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
+                cal.set(Calendar.HOUR_OF_DAY, hour)
+                cal.set(Calendar.MINUTE, minute)
+
+                binding.timeText.text = SimpleDateFormat("HH:mm aaa ").format(cal.time)
+            }
+
+            binding.timeText.setOnClickListener {
+                TimePickerDialog(
+                    this,
+                    timeSetListener,
+                    cal.get(Calendar.HOUR_OF_DAY),
+                    cal.get(Calendar.MINUTE),
+                    true
+                ).show()
+            }
+
+        }
         binding.swichCashout.setOnClickListener {
-
-
-            var intent:Intent=Intent(this@Cash_In,Cash_Out::class.java)
+            var intent: Intent = Intent(this@Cash_In, Cash_Out::class.java)
             startActivity(intent)
             finish()
         }
@@ -52,12 +87,16 @@ class Cash_In : AppCompatActivity() {
                 this,
                 { view, year, monthOfYear, dayOfMonth -> // set day of month , month and year value in the edit text
                     binding.dateYears.setText(dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year)
-                }, mYear, mMonth, mDay
+                },
+                mYear, mMonth, mDay
             )
             datePickerDialog.show()
         }
 
+
+
         binding.saveExite.setOnClickListener {
+
 
             var Amount = binding.cashinAmount.text.toString()
             var Notes = binding.notes.text.toString()
@@ -66,18 +105,23 @@ class Cash_In : AppCompatActivity() {
             var Time = binding.timeText.text.toString()
 
 
-            if(Amount!="" && Notes!="" && dateYear!=""&& Time!="")
-            {
-                var db:Databasehelper = Databasehelper(this@Cash_In)
-                db.insertData(Amount,Notes,dateYear,Time)
+            if (Amount != "" && dateYear != "" && Time != "") {
+                var db: Databasehelper = Databasehelper(this@Cash_In)
 
 
-                var inten :Intent=Intent(this@Cash_In,MainActivity::class.java)
+                if (model != null) {
+
+                    db.updateData(Amount, Notes, dateYear, Time,"IN",model.id)
+                }else {
+
+                    db.insertData(Amount, Notes, dateYear, Time,"IN")
+                }
+
+                var inten: Intent = Intent(this@Cash_In, MainActivity::class.java)
                 startActivity(inten)
                 finish()
 
             }
-
 
             Log.d("===*==", " Anout=$Amount")
             Log.d("===*==", " NOtes=$Notes")
@@ -85,24 +129,33 @@ class Cash_In : AppCompatActivity() {
             Log.d("===*==", " TIme =$Time")
         }
 
+        binding.saveContinue.setOnClickListener {
 
-        binding.timeSelact.setOnClickListener {
+            var Amount = binding.cashinAmount.text.toString()
+            var Notes = binding.notes.text.toString()
 
-            val cal = Calendar.getInstance()
+            var dateYear = binding.dateYears.text.toString()
+            var Time = binding.timeText.text.toString()
 
-            val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
-                cal.set(Calendar.HOUR_OF_DAY, hour)
-                cal.set(Calendar.MINUTE, minute)
 
-                binding.timeText.text = SimpleDateFormat("HH:mm aaa ").format(cal.time)
+            if (Amount != "" && dateYear != "" && Time != "") {
+                var db: Databasehelper = Databasehelper(this@Cash_In)
+
+
+                if (model != null) {
+
+                    db.updateData(Amount, Notes, dateYear, Time,"IN",model.id)
+                }else {
+
+                    db.insertData(Amount, Notes, dateYear, Time,"IN")
+                }
+
+
             }
-
-            binding.timeText.setOnClickListener {
-                TimePickerDialog(this, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
-            }
-
         }
+
     }
+
 
     fun date() {
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,9 +15,11 @@
         tools:context=".MainActivity">
 
         <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toAppbar"
@@ -27,8 +29,6 @@
                 android:background="#4CC9FE"
                 app:itemIconTint="#000000"
                 app:menu="@menu/menu"
-
-
                 app:navigationIcon="@drawable/ic_manu"
                 app:subtitleTextColor="@color/black"
                 app:title="Contact List"
@@ -37,10 +37,11 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:background="#4CC9FE">
+            android:layout_height="wrap_content"
+            android:background="#4CC9FE"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
 
             <HorizontalScrollView
@@ -104,38 +105,63 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_90sdp"
-            android:background="#4CC9FE">
-
-        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RecView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_144sdp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
             android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
         <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_marginRight="@dimen/_5sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="@color/white"
-            android:gravity="center"
-            android:orientation="horizontal">
-
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/RecView">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/cashin"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:backgroundTint="#02FA1A"
+                    android:text="cash in " />
+
+                <Button
+
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:id="@+id/cashout"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:backgroundTint="#F40707"
+                    android:text="cash out" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
                 <LinearLayout
-                    android:layout_width="@dimen/_105sdp"
-                    android:layout_height="@dimen/_70sdp"
+
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/shape2"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -161,8 +187,9 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="@dimen/_105sdp"
-                    android:layout_height="@dimen/_70sdp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@drawable/shape2"
                     android:gravity="center"
@@ -188,8 +215,10 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="@dimen/_105sdp"
-                    android:layout_height="@dimen/_70sdp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@drawable/shape2"
                     android:gravity="center"
@@ -216,33 +245,11 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-
-                <Button
-                    android:id="@+id/cashin"
-                    android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:backgroundTint="#02FA1A"
-                    android:text="cash in " />
-
-                <Button
-                    android:id="@+id/cashout"
-                    android:layout_width="@dimen/_120sdp"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:backgroundTint="#F40707"
-                    android:text="cash out" />
-
-            </LinearLayout>
 
         </LinearLayout>
 
 
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"

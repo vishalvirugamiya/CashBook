@@ -7,7 +7,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <FrameLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
@@ -21,20 +20,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/toAppbar"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#4CC9FE"
-                app:itemIconTint="#000000"
-                app:menu="@menu/menu"
+                android:background="#4CC9FE">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toAppbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#4CC9FE"
+                    app:itemIconTint="#000000"
+                    app:menu="@menu/menu"
+                    app:navigationIcon="@drawable/ic_manu"
+                    app:subtitleTextColor="@color/black"
+                    app:title="Cash Book"
+                    app:titleTextColor="@color/black"
+                    app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"/>
 
 
-                app:navigationIcon="@drawable/ic_manu"
-                app:subtitleTextColor="@color/black"
-                app:title="Contact List"
-                app:titleTextColor="@color/black" />
+<!--                <androidx.appcompat.widget.SearchView-->
+<!--                    android:id="@+id/search_View"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:iconifiedByDefault="false"-->
+<!--                    android:queryHint="Search..."-->
+<!--                    android:background="@drawable/searchview_background" />-->
+<!--                -->
+<!--                -->
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -47,7 +63,7 @@
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:scrollbars="none"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/chips_select"
@@ -57,48 +73,64 @@
                 app:layout_constraintVertical_bias="0.51">
 
                 <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_height="match_parent">
+                    android:orientation="horizontal"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
 
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/chip_1"
-                       android:layout_width="wrap_content"
+                        android:id="@+id/all"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
                         android:text="All"
                         android:textSize="@dimen/_12sdp"
-                        android:textColor="@color/black" />
+                        app:checkedIconVisible="false"
+                        app:chipBackgroundColor="@color/chip_selector"
+                        app:chipStrokeWidth="0dp" />
 
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/chip_2"
+                        android:id="@+id/Today"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today"
+                        app:checkedIconVisible="false"
+                        app:chipBackgroundColor="@color/chip_selector" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/weekly"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="weekly"
+                        app:checkedIconVisible="false"
+                        app:chipBackgroundColor="@color/chip_selector" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/monthly"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Monthly"
                         app:checkedIconTint="#4CC9FE"
-                        android:textSize="@dimen/_12sdp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Daily" />
-
+                        app:checkedIconVisible="false"
+                        app:chipBackgroundColor="@color/chip_selector" />
 
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/chip_3"
+                        android:id="@+id/yearly"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/_12sdp"
-                        android:text="Weekly" />
+                        android:text="Yearly"
+                        app:checkedIconTint="#4CC9FE"
+                        app:checkedIconVisible="false"
+                        app:chipBackgroundColor="@color/chip_selector" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip_4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_12sdp"
-                        android:text="Monthly" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip_5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/_12sdp"
-                        android:text="yearly" />
 
                 </com.google.android.material.chip.ChipGroup>
 
@@ -106,27 +138,84 @@
             </HorizontalScrollView>
 
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_90sdp"
+            android:background="#4CC9FE">
+            <TextView
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:text="all data "
+                android:textSize="@dimen/_15sdp"
+                android:id="@+id/dateRangeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:background="#4CC9FE"
-            android:layout_marginTop="@dimen/_90sdp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_130sdp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_30sdp">
 
+            <TextView
+                android:text="Date"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_gravity=""
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:textColor="@color/black"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                android:id="@+id/cashAmount"
+                android:textColor="#D311A61F"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Cash In"
+                android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:id="@+id/cashOut_amount"
+                    android:text="Cash Out"
+                    android:textColor="#DEDB3B3B"
+                    android:textSize="@dimen/_15sdp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+
         </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RecView"
             android:background="#F4F6FF"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_144sdp"
+            android:layout_marginTop="@dimen/_160sdp"
             android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:layout_marginBottom="@dimen/_165sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="@dimen/_120sdp"
             android:layout_gravity="bottom"
@@ -145,7 +234,7 @@
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginRight="@dimen/_20sdp"
-                    android:backgroundTint="#02FA1A"
+                    android:backgroundTint="#D311A61F"
                     android:text="cash in " />
 
                 <Button
@@ -153,7 +242,7 @@
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginLeft="@dimen/_20sdp"
-                    android:backgroundTint="#F40707"
+                    android:backgroundTint="#DEDB3B3B"
                     android:text="cash out" />
 
             </LinearLayout>
@@ -164,12 +253,13 @@
                 android:gravity="center">
 
                 <LinearLayout
-                    android:layout_width="@dimen/_105sdp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+
                     android:layout_height="@dimen/_70sdp"
                     android:background="@drawable/shape2"
                     android:gravity="center"
                     android:orientation="vertical">
-
 
                     <TextView
                         android:layout_width="match_parent"
@@ -177,7 +267,7 @@
                         android:gravity="center"
                         android:text="Total Cash In"
                         android:textColor="#1A7506"
-                        android:textSize="@dimen/_15sdp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/totalCashIn"
@@ -192,7 +282,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="@dimen/_105sdp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="@dimen/_70sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/shape2"
@@ -206,7 +297,7 @@
                         android:gravity="center"
                         android:text="Total Cash Out"
                         android:textColor="#FF1503"
-                        android:textSize="@dimen/_15sdp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/totalCashOut"
@@ -220,7 +311,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="@dimen/_105sdp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="@dimen/_70sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/shape2"
@@ -234,7 +326,7 @@
                         android:gravity="center"
                         android:text="Balance"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_15sdp" />
+                        android:textSize="@dimen/_13sdp" />
 
                     <TextView
                         android:id="@+id/balane"
@@ -250,7 +342,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
 
     </FrameLayout>
 

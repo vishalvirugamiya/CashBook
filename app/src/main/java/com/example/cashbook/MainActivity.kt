@@ -71,7 +71,6 @@ class MainActivity : AppCompatActivity() {
             val chip = chipGroup.getChildAt(i) as Chip
             chip.setOnClickListener {
 
-            //    Toast.makeText(this, "Clicked: ${chip.text}", Toast.LENGTH_SHORT).show()
 
                 if(chip.id==R.id.all)
                 {
@@ -91,11 +90,14 @@ class MainActivity : AppCompatActivity() {
 
                     dateRangeText.text = chip.text
 
+
                     todayTransaction(dateS)
 
 
                 }else if(chip.id==R.id.weekly)
                 {
+
+                    val tempList = mutableListOf<UserData>()
                     val calendar = Calendar.getInstance()
                     calendar.set(Calendar.DAY_OF_WEEK, calendar.firstDayOfWeek)
                     val startDate = calendar.time
@@ -110,18 +112,27 @@ class MainActivity : AppCompatActivity() {
                         val loopCalendar = Calendar.getInstance()
                         loopCalendar.time = startDate
 
-                        while (!loopCalendar.time.after(endDate)) {
-                            val currentDate = loopCalendar.time
-                            val currentFormatted = dateFormat.format(currentDate)
 
-                            loopCalendar.add(Calendar.DAY_OF_MONTH, 1)
-                            Log.d("WeekDate", currentFormatted)
-                            weeklytransaction(currentFormatted)
+                    while (!loopCalendar.time.after(endDate)) {
+                        val currentDate = loopCalendar.time
+                        val formattedDate = dateFormat.format(currentDate)
 
-                        }
+                        val filtered = weeklytransaction(formattedDate)
+                        tempList.addAll(filtered)
+
+                        loopCalendar.add(Calendar.DAY_OF_MONTH, 1)
+                    }
+
+                    // Only update display once
+                    display.clear()
+                    display.addAll(tempList)
+                    Adappter()
 
                 }else if(chip.id==R.id.monthly)
                 {
+
+                    val tempList = mutableListOf<UserData>()
+
                     val calendar = Calendar.getInstance()
                     calendar.set(Calendar.DAY_OF_MONTH, 1)
                     val startDate = calendar.time
@@ -130,25 +141,32 @@ class MainActivity : AppCompatActivity() {
                     val endDate = calendar.time
 
                     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-
                     dateRangeText.text = "${dateFormat.format(startDate)} -> ${dateFormat.format(endDate)}"
 
+                          // Loop through each day in the month
                     val loopCalendar = Calendar.getInstance()
                     loopCalendar.time = startDate
 
                     while (!loopCalendar.time.after(endDate)) {
                         val currentDate = loopCalendar.time
-                        val currentFormatted = dateFormat.format(currentDate)
+                        val formattedDate = dateFormat.format(currentDate)
+
+                        val filtered = monthlyTransaction(formattedDate)
+                        tempList.addAll(filtered)
 
                         loopCalendar.add(Calendar.DAY_OF_MONTH, 1)
-
-                        monthlyTransaction(currentFormatted) // Daily filtering
                     }
+
+                         // Only update display once
+                    display.clear()
+                    display.addAll(tempList)
+                    Adappter()
+
 
                 }else if(chip.id==R.id.yearly)
                 {
                     val calendar = Calendar.getInstance()
-
+                    val tempList = mutableListOf<UserData>()
                       // Set to the beginning of the year (January 1st)
                     calendar.set(Calendar.MONTH, Calendar.JANUARY)
                     calendar.set(Calendar.DAY_OF_MONTH, 1)
@@ -168,16 +186,23 @@ class MainActivity : AppCompatActivity() {
                     val loopCalendar = Calendar.getInstance()
                     loopCalendar.time = startDate
 
+
+
                     while (!loopCalendar.time.after(endDate)) {
                         val currentDate = loopCalendar.time
-                        val currentFormatted = displayFormat.format(currentDate)
+                        val formattedDate = displayFormat.format(currentDate)
 
-                        yearly(currentFormatted)
+                        val filtered = yearly(formattedDate)
+                        tempList.addAll(filtered)
 
                         loopCalendar.add(Calendar.DAY_OF_MONTH, 1)
                     }
 
-                 //   dateRangeText.text = chip.text
+                    // Only update display once
+                    display.clear()
+                    display.addAll(tempList)
+                    Adappter()
+
                 }
             }
         }
@@ -251,49 +276,21 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun yearly(yearly: String) {
+    private fun yearly(yearly: String): List<UserData> {
 
-        val filteredList = List.filter { it.dateYear == yearly }
-
-        if (filteredList.isNotEmpty()) {
-            Log.d("==***===", "Match found: $yearly")
-
-            display.clear()
-            display.addAll(filteredList)
-
-            Adappter()  // Ensure Adapter() updates the RecyclerView or UI
-        }
+        return List.filter { it.dateYear == yearly }
     }
 
-    private fun monthlyTransaction(monthly: String) {
+    private fun monthlyTransaction(monthly: String): List<UserData> {
 
-        val monthData = mutableListOf<UserData>()
-
-        monthData.addAll(List.filter { it.dateYear == monthly })
-
-        if (monthData.isNotEmpty()) {
-            Log.d("==***===", "Match found: $monthly")
-
-            display.clear()
-            display.addAll(monthData)
-            Adappter()
-        }
-
+        return List.filter { it.dateYear == monthly }
     }
 
-    private fun weeklytransaction(weeklyday: String) {
+    private fun weeklytransaction(weeklyday: String): List<UserData> {
 
-        val filteredList = List.filter { it.dateYear == weeklyday }
-
-        if (filteredList.isNotEmpty()) {
-            Log.d("==***===", "Match found: $weeklyday")
-
-            display.clear()
-            display.addAll(filteredList)
-            Adappter()
-
-        }
+        return List.filter { it.dateYear == weeklyday }
     }
+
 
     private fun todayTransaction(dateS: String) {
 
@@ -363,7 +360,7 @@ class MainActivity : AppCompatActivity() {
         // Optional: Handle open/close animations or events
         searchItem.setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem): Boolean {
-                toolbar.title = ""
+                toolbar.title =""
                 return true
             }
 
@@ -378,7 +375,6 @@ class MainActivity : AppCompatActivity() {
 
         return true
     }
-
 
     private fun generateCashbookPDF(mainActivity: MainActivity, dataList: ArrayList<UserData>) {
         val pdfDocument = PdfDocument()
@@ -463,6 +459,19 @@ class MainActivity : AppCompatActivity() {
 
         adapter.notifyDataSetChanged()
 
+//        if (!::display.isInitialized) return
+//
+//        if (binding.RecView.adapter == null) {
+//            val layoutManager = LinearLayoutManager(this).apply {
+//                reverseLayout = true
+//                stackFromEnd = true
+//            }
+//            binding.RecView.layoutManager = layoutManager
+//            val adapter = MyAdapter(this@MainActivity, display)
+//            binding.RecView.adapter = adapter
+//        } else {
+//            (binding.RecView.adapter as MyAdapter).notifyDataSetChanged()
+//        }
 
     }
 

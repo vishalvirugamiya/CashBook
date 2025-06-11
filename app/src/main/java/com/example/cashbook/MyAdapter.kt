@@ -34,12 +34,12 @@ class MyAdapter(
 
         if (model.type == "IN") {
             holder.binding.cashAmount.text = model.Amount.toString()
-//            holder.binding.cashAmount.visibility = View.VISIBLE
-//            holder.binding.cashOutAmount.visibility = View.GONE
+            holder.binding.cashAmount.visibility = View.VISIBLE
+ //           holder.binding.cashOutAmount.visibility = View.GONE
         } else {
             holder.binding.cashOutAmount.text = model.Amount.toString()
-//            holder.binding.cashAmount.visibility = View.GONE
-//            holder.binding.cashOutAmount.visibility = View.VISIBLE
+ //           holder.binding.cashAmount.visibility = View.GONE
+            holder.binding.cashOutAmount.visibility = View.VISIBLE
         }
 
         holder.binding.cliclinear.setOnClickListener {

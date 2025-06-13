@@ -62,6 +62,20 @@ class MainActivity : AppCompatActivity() {
         CashinFunction()
         Adappter()
 
+        binding.navigationView.setNavigationItemSelectedListener {
+
+            if(it.itemId==R.id.home_)
+            {
+                binding.drawerLayout.closeDrawers()
+            }else if(it.itemId==R.id.exit){
+
+                finish()
+            }
+
+
+            return@setNavigationItemSelectedListener false
+        }
+
         val chipGroup = findViewById<ChipGroup>(R.id.chipGroup)
 
         dateRangeText = findViewById(R.id.dateRangeText)
@@ -187,7 +201,6 @@ class MainActivity : AppCompatActivity() {
                     loopCalendar.time = startDate
 
 
-
                     while (!loopCalendar.time.after(endDate)) {
                         val currentDate = loopCalendar.time
                         val formattedDate = displayFormat.format(currentDate)
@@ -258,12 +271,7 @@ class MainActivity : AppCompatActivity() {
 
                     cashInOut("OUT")
                 }
-                R.id.nameAddress ->{
 
-                    var bottonSTdialog = BottomSheetDialog(this@MainActivity)
-
-                    bottonSTdialog.setContentView(R.layout.notesearch)
-                }
                 R.id.Print ->{
 
                     val dataList = databaseHelper.fetchAllData()
@@ -459,19 +467,6 @@ class MainActivity : AppCompatActivity() {
 
         adapter.notifyDataSetChanged()
 
-//        if (!::display.isInitialized) return
-//
-//        if (binding.RecView.adapter == null) {
-//            val layoutManager = LinearLayoutManager(this).apply {
-//                reverseLayout = true
-//                stackFromEnd = true
-//            }
-//            binding.RecView.layoutManager = layoutManager
-//            val adapter = MyAdapter(this@MainActivity, display)
-//            binding.RecView.adapter = adapter
-//        } else {
-//            (binding.RecView.adapter as MyAdapter).notifyDataSetChanged()
-//        }
 
     }
 

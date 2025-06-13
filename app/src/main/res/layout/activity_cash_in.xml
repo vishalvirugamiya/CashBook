@@ -138,42 +138,28 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_width="@dimen/_190sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:background="@drawable/shape1">
 
-                <ImageView
-                    android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_16sdp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:background="@drawable/leftarrow" />
 
                 <TextView
                     android:id="@+id/date_years"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="28dp"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/_10sdp"
                     android:text="date &amp; Year"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15sdp" />
-
-                <ImageView
-                    android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_16sdp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:background="@drawable/rightarrow" />
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/calender"
                     android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_7sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
                     app:endIconDrawable="@drawable/ic_calendar"
                     app:endIconMode="custom"
                     app:endIconTint="#2196F3"

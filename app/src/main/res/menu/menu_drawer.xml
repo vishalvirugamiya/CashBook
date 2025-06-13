@@ -1,39 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:icon="@drawable/ic_sumary"
-        android:id="@+id/summary"
-        android:title="Summary"/>
 
-    <item
-        android:icon="@drawable/ic_sumary"
-        android:id="@+id/item3"
-        android:title="Account Summary" />
-
-
-    <item
-        android:icon="@drawable/ic_transaction"
-        android:id="@+id/transaction"
-        android:title="Transaction-All"/>
-
-    <item
-        android:icon="@drawable/ic_accounts"
-        android:id="@+id/Account"
-        android:title="Account"/>
-
-       <item
-        android:icon="@drawable/ic_reportaccount"
-        android:id="@+id/reportAllAcoungt"
-        android:title="Report-all Account"/>
-
-    <item
-        android:icon="@drawable/ic_transfer"
-        android:id="@+id/switchtoIcon"
-        android:title="Switch to Income"/>
-
-
-    <group
+<group
         android:id="@+id/group2"
         android:checkableBehavior="single">
         <item
@@ -47,13 +16,9 @@
                     android:id="@+id/home_"
                     android:title="Home" />
                 <item
-                    android:icon="@drawable/ic_help"
-                    android:id="@+id/help_"
-                    android:title="Help" />
-                <item
-                    android:icon="@drawable/ic_settings"
-                    android:id="@+id/setting"
-                    android:title="Settings" />
+                    android:icon="@drawable/exit"
+                    android:id="@+id/exit"
+                    android:title="Exit" />
 
             </menu>
 

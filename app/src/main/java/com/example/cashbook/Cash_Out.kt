@@ -1,6 +1,7 @@
 package com.example.cashbook
 
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -42,7 +43,28 @@ class Cash_Out : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        binding.timeSelact.setOnClickListener {
 
+            val cal = Calendar.getInstance()
+
+            val timeSetListener = TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
+                cal.set(Calendar.HOUR_OF_DAY, hour)
+                cal.set(Calendar.MINUTE, minute)
+
+                binding.time.text = SimpleDateFormat("HH:mm aaa ").format(cal.time)
+            }
+
+            binding.time.setOnClickListener {
+                TimePickerDialog(
+                    this,
+                    timeSetListener,
+                    cal.get(Calendar.HOUR_OF_DAY),
+                    cal.get(Calendar.MINUTE),
+                    true
+                ).show()
+            }
+
+        }
 
         binding.calender.setOnClickListener {
             val c: Calendar = Calendar.getInstance()
